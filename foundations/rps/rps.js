@@ -14,26 +14,42 @@ function getHumanChoice() {
 }
 
 const beats = {rock: "scissors", paper: "rock", scissors: "paper"};
+const cpu = document.querySelector('#cpuchoice');
+const output = document.querySelector('#score')
 
 function playRound(humanChoice, computerChoice) {
+    cpu.textContent = `CPU Choice: ${computerChoice}`
     if (humanChoice == computerChoice) {
-        console.log(`Draw, you both chose  ${humanChoice}.`);
-        return;
+
     } else if (beats[humanChoice] == computerChoice)  {
         humanScore++;
-        console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
-        return;
     } else {
         computerScore++;
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
-        return;
     }
+    output.innerHTML = `Player: ${humanScore}<br>CPU: ${computerScore}`
 }
 
 let humanScore = 0;
 let computerScore = 0;
 
-for(let  i = 0; i < 5; i++) {
+/*for(let  i = 0; i < 5; i++) {
     playRound(getHumanChoice(), getComputerChoice());
     console.log(`Human: ${humanScore}\nComputer: ${computerScore}`);
-}
+}*/
+
+const container = document.querySelector('.container');
+container.addEventListener('click', (event) => {
+    let  target = event.target;
+
+    switch(target.id) {
+        case 'rock':
+            playRound("rock", getComputerChoice());
+            break;
+        case 'paper':
+            playRound("paper", getComputerChoice());
+            break;
+        case 'scissors':
+            playRound("scissors", getComputerChoice());
+            break;
+    }
+});
