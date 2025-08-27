@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    flex-direction: column;
+    width: 960px;
+    margin: auto;
+    gap: 16px;
+}
+
+#display {
+    border: 3px solid #808080;
+    height: 100px;
+}
+
+#displaytext {
+    font-size: 32px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#buttons {
+    width: 480px;
+    display: flex;
+    flex-wrap: wrap;
+    border:1px solid #ccc;
+    margin: auto;
+}
+
+button {
+    box-sizing: border-box;
+    border: 1px solid #808080;
+    flex: 0 0 120px;
+    aspect-ratio: 1 / 1;
+    font-size: 16px;
+    font-weight: 500;
+    transition: filter 80ms ease, transform 40ms ease;
+}
+
+button:active {
+  filter: brightness(0.85);   /* darken while pressed */
+}
